@@ -6,6 +6,15 @@
         Users List
     </div>
     <div class="card-body">
+        @if (session('success'))
+        <div class="col-lg-12 alert alert-info p-0" role="alert">
+            <i class="fas fa-check-circle"></i>
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>

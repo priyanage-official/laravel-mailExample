@@ -33,7 +33,9 @@ class SendEmail extends Mailable
     public function build()
     {
         return $this->view('mail.sendMail')->with(['name' => $this->name])
-        ->attachData($this->attachment, 'myattachment.png') // with attachment
+        ->attach($this->attachment, [
+            'as' => 'myattachment.png'
+        ]) // with attachment
         ->subject('This is my first test mail'); 
     }
 }

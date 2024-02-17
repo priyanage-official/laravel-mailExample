@@ -6,6 +6,7 @@ use App\Http\Services\UserService;
 use App\Mail\SendEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -38,14 +39,14 @@ class HomeController extends Controller
 
         $fullname = $getData->fullname;
         $email = $getData->email;
-        $attachment = public_path('/images/testing.png');
+        $attachment = public_path('images\testing.png');
 
         Mail::to($email)->send(new SendEmail($fullname, $attachment));
 
         if (count(Mail::failures()) > 0) {
             return 'failed';
         } else {
-            return 'done';
+            return Redirect::back()->with('success', 'Successfully Send!');
         }
     }
 }
