@@ -32,10 +32,15 @@ class HomeController extends Controller
         return view('home', $data);
     }
 
-    public function sendMail()
+    public function sendMail($id)
     {
-        $name = 'Priya';
-        Mail::to('priyanage11@gmail.com')->send(new SendEmail($name));
+        $getData = $this->userService->getSpecificUsers($id);
+
+        $fullname = $getData->fullname;
+        $email = $getData->email;
+        $attachment = public_path('/images/testing.png');
+
+        Mail::to($email)->send(new SendEmail($fullname, $attachment));
 
         if (count(Mail::failures()) > 0) {
             return 'failed';

@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('sendMail', [HomeController::class, 'sendMail'])->name('sendMail');
+Route::get('sendMail/{id}', [HomeController::class, 'sendMail'])->name('sendMail');

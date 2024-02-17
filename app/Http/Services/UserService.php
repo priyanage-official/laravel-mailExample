@@ -10,4 +10,9 @@ class UserService
     {
         return User::orderBy('id')->get();
     }
+
+    public function getSpecificUsers($id)
+    {
+        return User::find($id);
+    }
 }

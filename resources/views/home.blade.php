@@ -27,7 +27,7 @@
                     <td>{{$user['email']}}</td>
                     <td>{{$user['age']}}</td>
                     <td>{{$user['gender']}}</td>
-                    <td><a href="{{route('sendMail')}}" class="btn btn-primary">Send Email</a></td>
+                    <td><a href="{{route('sendMail',['id' => $user['id']])}}" class="btn btn-primary">Send Email</a></td>
                 </tr>
                 @endforeach
             </tbody>
