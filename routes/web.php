@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [EmployeesController::class, 'index'])->name('index');
-
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
